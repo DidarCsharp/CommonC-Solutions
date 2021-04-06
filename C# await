@@ -1,0 +1,16 @@
+       private async void FirstLoad()
+        {
+            Task<DataTable> Loading = new Task<DataTable>(() => allData());
+            Loading.Start();
+            grid_stock.DataSource = await Loading;
+
+        }
+          private DataTable allData()
+        {
+            DataTable dt = Connstring.SqlDataTable(@"SELECT        ProductCode AS Code, Name, SUM(OpeningStock) + SUM(Purchase) - SUM(PurchaseReturn) - SUM(Sale) + SUM(SaleReturn) - SUM(Damage) AS [Current Stock], SUM(OpeningStock) AS [Opening Stock], 
+            SUM(Purchase) AS Purchase, SUM(PurchaseReturn) AS [Purchase Return], SUM(Sale) AS Sale, SUM(SaleReturn) AS [Sale Return], SUM(Damage) AS Damage, CategoryName, PortfolioName
+            FROM            vinv.CurrentStockReport
+            GROUP BY ProductCode, Name, CategoryName, PortfolioName
+            ORDER BY Code");
+            return dt;
+        }
