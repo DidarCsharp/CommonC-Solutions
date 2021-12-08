@@ -1,0 +1,2 @@
+DataView view = new DataView(table);
+DataTable distinctValues = view.ToTable(true, "Column1", "Column2" ...);
