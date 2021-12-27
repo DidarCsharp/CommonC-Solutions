@@ -1,0 +1,9 @@
+   int a = 8;
+   int b = 6;
+   string result = a > b ? Testmethod() : a < b ? "b is greater than a" : a == b ? "a is equal to b":"ELSE";
+   
+   private string  Testmethod()
+        {
+            string tets = "a is greater than b";
+            return tets;
+        }
