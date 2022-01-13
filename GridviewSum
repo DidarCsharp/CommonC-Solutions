@@ -1,0 +1,10 @@
+try
+            {
+                double sum = 0;
+                for (int i = 0; i < DT_GridView.Rows.Count; ++i)
+                {
+                    sum += Convert.ToDouble(DT_GridView.Rows[i].Cells[7].Value);
+                }
+                txtTotalamt.Text =Math.Round( sum, 2).ToString();
+            }
+            catch { }
