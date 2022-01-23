@@ -1,0 +1,3 @@
+   DataView dv = dt.DefaultView;
+            dv.Sort = "Index ASC";
+            dt = dv.ToTable();
