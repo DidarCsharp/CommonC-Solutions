@@ -1,0 +1,6 @@
+  TimeSpan start = TimeSpan.Parse("22:00"); // 10 PM        
+            TimeSpan now = DateTime.Now.TimeOfDay;
+            if (now >= start)
+            {
+              
+            }
