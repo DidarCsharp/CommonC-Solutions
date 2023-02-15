@@ -1,0 +1,11 @@
+  // Assuming your DataTable is named "myTable"
+                var duplicates = dt.AsEnumerable()
+                    .GroupBy(row => new { Col1 = row["SaleCode"]}) // group by the columns you want to check
+                    .Where(group => group.Count() > 1) // select groups that have more than one row
+                    .Select(group => group.Key); // select the grouping key, which represents the duplicated values
+                foreach (var dupe in duplicates)
+                {
+                    string Duplicate = dupe.Col1.ToString();
+                    result =  Duplicate;
+                    return result;
+                }
